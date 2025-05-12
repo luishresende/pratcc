@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <h3 class="text-dark mb-4">Alunos</h3>
+    <div class="card shadow">
+        <div class="card-header py-3">
+            <div style="display: flex;align-items: center;justify-content: space-between;">
+                <p class="text-primary m-0 fw-bold" style="color: var(--secondary-color)!important;">Informações</p><button class="btn btn-primary btn-sm" id="register-students-btn" type="button"><i class="far fa-plus-square" style="margin-right: 5px;"></i>Cadastrar</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 text-nowrap">
+                    <div id="dataTable_length-1" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Mostrar&nbsp;<select class="d-inline-block form-select form-select-sm">
+                                <option value="10" selected="">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>&nbsp;</label></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-md-end dataTables_filter" id="dataTable_filter-1"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Buscar"></label></div>
+                </div>
+            </div>
+            <div class="table-responsive table mt-2" id="student-table" role="grid" aria-describedby="dataTable_info">
+                <table class="table table-hover my-0" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>RA</th>
+                            <th>TCCs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td><strong>Nome</strong></td>
+                            <td><strong>RA</strong></td>
+                            <td><strong>TCCs</strong></td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-md-6 align-self-center">
+                    <p id="dataTable_info-1" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
+                </div>
+                <div class="col-md-6">
+                    <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                        <ul class="pagination">
+                            <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'modals/register-person.html' %}
+
+    {% include 'modals/delete-confirmation.html' %}
+
+</div>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bs-init.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script src="{% static 'js/global.js' %}"></script>
+    <script src="{% static 'js/pessoas.js' %}"></script>
+    <script src="{% static 'js/aluno.js' %}"></script>
+{% endblock %}

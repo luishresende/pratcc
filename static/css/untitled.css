@@ -1,0 +1,44 @@
+:root, [data-bs-theme=light] {
+  --secondary-color: var(--bs-secondary-text-emphasis);
+}
+
+tbody tr {
+  cursor: pointer;
+}
+
+.rotate-icon {
+  transition: transform 0.3s ease;
+}
+
+.rotate-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.required-input {
+}
+
+.dual-list .list-group {
+  margin-top: 8px;
+}
+
+.list-left li, .list-right li {
+  cursor: pointer;
+}
+
+.list-arrows button {
+  width: 40px;
+  height: 40px;
+}
+
+.far.fa-trash-alt {
+  color: red;
+}
+
+.far.fa-trash-alt:hover {
+  cursor: pointer;
+}
+
+#student-table tbody tr {
+  cursor: pointer;
+}
+
