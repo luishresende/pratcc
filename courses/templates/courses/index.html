@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <h3 class="text-dark mb-4">Cursos e Universidades</h3>
+    <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="university-collapse" href="#university-collapse" role="button" id="university-collapse-btn" style="color: black;background: none;border: none;"><i class="fas fa-chevron-down rotate-icon" id="university-icon" style="margin-right: 8px;"></i>Universidades</a>
+        <div class="collapse" id="university-collapse">
+            <div class="card shadow">
+                <div class="card-header py-3">
+                    <div style="display: flex;align-items: center;justify-content: space-between;">
+                        <p class="text-primary m-0 fw-bold" style="color: var(--secondary-color)!important;">Universidades</p><button class="btn btn-primary btn-sm" id="register-student-btn-1" type="button"><i class="far fa-plus-square" style="margin-right: 5px;"></i>Cadastrar</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 text-nowrap">
+                            <div id="dataTable_length-2" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Mostrar&nbsp;<select class="d-inline-block form-select form-select-sm">
+                                        <option value="10" selected="">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>&nbsp;</label></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-end dataTables_filter" id="dataTable_filter-2"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Buscar"></label></div>
+                        </div>
+                    </div>
+                    <div class="table-responsive table mt-2" id="university-table" role="grid" aria-describedby="dataTable_info">
+                        <table class="table table-hover my-0" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th><strong>Nome</strong></th>
+                                    <th>UF</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr></tr>
+                            </tbody>
+                            <tfoot>
+                                <tr></tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 align-self-center">
+                            <p id="dataTable_info-2" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
+                        </div>
+                        <div class="col-md-6">
+                            <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                <ul class="pagination">
+                                    <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="campus-collapse" href="#campus-collapse" role="button" id="campus-collapse-btn" style="color: black;background: none;border: none;"><i class="fas fa-lock rotate-icon" id="campus-icon" style="margin-right: 8px;"></i>Campus</a>
+        <div class="collapse" id="campus-collapse">
+            <div class="card shadow">
+                <div class="card-header py-3">
+                    <div style="display: flex;align-items: center;justify-content: space-between;">
+                        <p class="text-primary m-0 fw-bold" style="color: var(--secondary-color)!important;">Cursos</p><button class="btn btn-primary btn-sm" id="register-student-btn" type="button"><i class="far fa-plus-square" style="margin-right: 5px;"></i>Cadastrar</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 text-nowrap">
+                            <div id="dataTable_length-1" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Mostrar&nbsp;<select class="d-inline-block form-select form-select-sm">
+                                        <option value="10" selected="">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>&nbsp;</label></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-end dataTables_filter" id="dataTable_filter-1"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Buscar"></label></div>
+                        </div>
+                    </div>
+                    <div class="table-responsive table mt-2" id="campus-table" role="grid" aria-describedby="dataTable_info">
+                        <table class="table table-hover my-0" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Cidade</th>
+                                    <th>Cursos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr></tr>
+                            </tbody>
+                            <tfoot>
+                                <tr></tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 align-self-center">
+                            <p id="dataTable_info-1" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
+                        </div>
+                        <div class="col-md-6">
+                            <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                <ul class="pagination">
+                                    <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="courses-collapse" href="#courses-collapse" role="button" id="courses-collapse-btn" style="color: black;background: none;border: none;"><i class="fas fa-lock rotate-icon" id="courses-icon" style="margin-right: 8px;"></i>Cursos</a>
+        <div class="collapse" id="courses-collapse">
+            <div class="card shadow">
+                <div class="card-header py-3">
+                    <div style="display: flex;align-items: center;justify-content: space-between;">
+                        <p class="text-primary m-0 fw-bold" style="color: var(--secondary-color)!important;">Cursos</p><button class="btn btn-primary btn-sm" id="register-student-btn-2" type="button"><i class="far fa-plus-square" style="margin-right: 5px;"></i>Cadastrar</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 text-nowrap">
+                            <div id="dataTable_length-3" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Mostrar&nbsp;<select class="d-inline-block form-select form-select-sm">
+                                        <option value="10" selected="">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>&nbsp;</label></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-end dataTables_filter" id="dataTable_filter-3"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Buscar"></label></div>
+                        </div>
+                    </div>
+                    <div class="table-responsive table mt-2" id="courses-table" role="grid" aria-describedby="dataTable_info">
+                        <table class="table table-hover my-0" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>RA</th>
+                                    <th>TCCs</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr></tr>
+                            </tbody>
+                            <tfoot>
+                                <tr></tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 align-self-center">
+                            <p id="dataTable_info-3" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
+                        </div>
+                        <div class="col-md-6">
+                            <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                <ul class="pagination">
+                                    <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'modals/delete-confirmation.html' %}
+
+</div>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bs-init.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script src="{% static 'js/global.js' %}"></script>
+    <script src="{% static 'js/cursos.js' %}"></script>
+{% endblock %}

@@ -1,15 +1,15 @@
 const universityCollapse = document.getElementById('university-collapse');
-const universityBsCollapse = bootstrap.Collapse.getOrCreateInstance(universityCollapse);
+const universityBsCollapse = bootstrap.Collapse.getOrCreateInstance(universityCollapse, { toggle: false });
 const universityIcon = document.getElementById('university-icon');
 const univesityTable = document.getElementById('university-table');
 
 const campusCollapse = document.getElementById('campus-collapse');
-const campusBsCollapse = bootstrap.Collapse.getOrCreateInstance(campusCollapse);
+const campusBsCollapse = bootstrap.Collapse.getOrCreateInstance(campusCollapse, { toggle: false });
 const campusIcon = document.getElementById('campus-icon');
 const campusTable = document.getElementById('campus-table');
 
 const coursesCollapse = document.getElementById('courses-collapse');
-const coursesBsCollapse = bootstrap.Collapse.getOrCreateInstance(coursesCollapse);
+const coursesBsCollapse = bootstrap.Collapse.getOrCreateInstance(coursesCollapse, { toggle: false });
 const coursesIcon = document.getElementById('courses-icon');
 const coursesTable = document.getElementById('courses-table');
 
