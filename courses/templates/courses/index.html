@@ -1,22 +1,32 @@
-{% extends "base.html" %}
-
+{% extends "core/base.html" %}
+{% debug %}
 {% load static %}
-
+{% block title %}
+<title>PRATCC - Cursos</title>
+{% endblock %}
 {% block content %}
 <div class="container-fluid">
     <h3 class="text-dark mb-4">Cursos e Universidades</h3>
-    <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="university-collapse" href="#university-collapse" role="button" id="university-collapse-btn" style="color: black;background: none;border: none;"><i class="fas fa-chevron-down rotate-icon" id="university-icon" style="margin-right: 8px;"></i>Universidades</a>
+    <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="university-collapse"
+            href="#university-collapse" role="button" id="university-collapse-btn"
+            style="color: black;background: none;border: none;"><i class="fas fa-chevron-down rotate-icon"
+                id="university-icon" style="margin-right: 8px;"></i>Universidades</a>
         <div class="collapse" id="university-collapse">
             <div class="card shadow">
                 <div class="card-header py-3">
                     <div style="display: flex;align-items: center;justify-content: space-between;">
-                        <p class="text-primary m-0 fw-bold" style="color: var(--secondary-color)!important;">Universidades</p><button class="btn btn-primary btn-sm" id="register-student-btn-1" type="button"><i class="far fa-plus-square" style="margin-right: 5px;"></i>Cadastrar</button>
+                        <p class="text-primary m-0 fw-bold" style="color: var(--secondary-color)!important;">
+                            Universidades</p><button class="btn btn-primary btn-sm" id="university-register-btn"
+                            type="button"><i class="far fa-plus-square"
+                                style="margin-right: 5px;"></i>Cadastrar</button>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 text-nowrap">
-                            <div id="dataTable_length-2" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Mostrar&nbsp;<select class="d-inline-block form-select form-select-sm">
+                            <div id="dataTable_length-2" class="dataTables_length" aria-controls="dataTable"><label
+                                    class="form-label">Mostrar&nbsp;<select
+                                        class="d-inline-block form-select form-select-sm">
                                         <option value="10" selected="">10</option>
                                         <option value="25">25</option>
                                         <option value="50">50</option>
@@ -24,15 +34,18 @@
                                     </select>&nbsp;</label></div>
                         </div>
                         <div class="col-md-6">
-                            <div class="text-md-end dataTables_filter" id="dataTable_filter-2"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Buscar"></label></div>
+                            <div class="text-md-end dataTables_filter" id="dataTable_filter-2"><label
+                                    class="form-label"><input type="search" class="form-control form-control-sm"
+                                        aria-controls="dataTable" placeholder="Buscar"></label></div>
                         </div>
                     </div>
-                    <div class="table-responsive table mt-2" id="university-table" role="grid" aria-describedby="dataTable_info">
+                    <div class="table-responsive table mt-2" id="university-table" role="grid"
+                        aria-describedby="dataTable_info">
                         <table class="table table-hover my-0" id="dataTable">
                             <thead>
                                 <tr>
+                                    <th><strong>Sigla</strong></th>
                                     <th><strong>Nome</strong></th>
-                                    <th>UF</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,16 +58,19 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 align-self-center">
-                            <p id="dataTable_info-2" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
+                            <p id="dataTable_info-2" class="dataTables_info" role="status" aria-live="polite">Showing 1
+                                to 10 of 27</p>
                         </div>
                         <div class="col-md-6">
                             <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
                                 <ul class="pagination">
-                                    <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                    <li class="page-item disabled"><a class="page-link" aria-label="Previous"
+                                            href="#"><span aria-hidden="true">«</span></a></li>
                                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                    <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span
+                                                aria-hidden="true">»</span></a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -63,18 +79,25 @@
             </div>
         </div>
     </div>
-    <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="campus-collapse" href="#campus-collapse" role="button" id="campus-collapse-btn" style="color: black;background: none;border: none;"><i class="fas fa-lock rotate-icon" id="campus-icon" style="margin-right: 8px;"></i>Campus</a>
+    <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="campus-collapse"
+            href="#campus-collapse" role="button" id="campus-collapse-btn"
+            style="color: black;background: none;border: none;"><i class="fas fa-lock rotate-icon" id="campus-icon"
+                style="margin-right: 8px;"></i>Campus</a>
         <div class="collapse" id="campus-collapse">
             <div class="card shadow">
                 <div class="card-header py-3">
                     <div style="display: flex;align-items: center;justify-content: space-between;">
-                        <p class="text-primary m-0 fw-bold" style="color: var(--secondary-color)!important;">Cursos</p><button class="btn btn-primary btn-sm" id="register-student-btn" type="button"><i class="far fa-plus-square" style="margin-right: 5px;"></i>Cadastrar</button>
+                        <p id="campus-collapse-title" class="text-primary m-0 fw-bold" style="color: var(--secondary-color)!important;">Cursos</p>
+                        <button class="btn btn-primary btn-sm" id="campus-register-btn" type="button"><i
+                                class="far fa-plus-square" style="margin-right: 5px;"></i>Cadastrar</button>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 text-nowrap">
-                            <div id="dataTable_length-1" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Mostrar&nbsp;<select class="d-inline-block form-select form-select-sm">
+                            <div id="dataTable_length-1" class="dataTables_length" aria-controls="dataTable"><label
+                                    class="form-label">Mostrar&nbsp;<select
+                                        class="d-inline-block form-select form-select-sm">
                                         <option value="10" selected="">10</option>
                                         <option value="25">25</option>
                                         <option value="50">50</option>
@@ -82,14 +105,17 @@
                                     </select>&nbsp;</label></div>
                         </div>
                         <div class="col-md-6">
-                            <div class="text-md-end dataTables_filter" id="dataTable_filter-1"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Buscar"></label></div>
+                            <div class="text-md-end dataTables_filter" id="dataTable_filter-1"><label
+                                    class="form-label"><input type="search" class="form-control form-control-sm"
+                                        aria-controls="dataTable" placeholder="Buscar"></label></div>
                         </div>
                     </div>
-                    <div class="table-responsive table mt-2" id="campus-table" role="grid" aria-describedby="dataTable_info">
+                    <div class="table-responsive table mt-2" id="campus-table" role="grid"
+                        aria-describedby="dataTable_info">
                         <table class="table table-hover my-0" id="dataTable">
                             <thead>
                                 <tr>
-                                    <th>Cidade</th>
+                                    <th>Nome</th>
                                     <th>Cursos</th>
                                 </tr>
                             </thead>
@@ -103,16 +129,19 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 align-self-center">
-                            <p id="dataTable_info-1" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
+                            <p id="dataTable_info-1" class="dataTables_info" role="status" aria-live="polite">Showing 1
+                                to 10 of 27</p>
                         </div>
                         <div class="col-md-6">
                             <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
                                 <ul class="pagination">
-                                    <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                    <li class="page-item disabled"><a class="page-link" aria-label="Previous"
+                                            href="#"><span aria-hidden="true">«</span></a></li>
                                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                    <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span
+                                                aria-hidden="true">»</span></a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -121,18 +150,25 @@
             </div>
         </div>
     </div>
-    <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="courses-collapse" href="#courses-collapse" role="button" id="courses-collapse-btn" style="color: black;background: none;border: none;"><i class="fas fa-lock rotate-icon" id="courses-icon" style="margin-right: 8px;"></i>Cursos</a>
+    <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="courses-collapse"
+            href="#courses-collapse" role="button" id="courses-collapse-btn"
+            style="color: black;background: none;border: none;"><i class="fas fa-lock rotate-icon" id="courses-icon"
+                style="margin-right: 8px;"></i>Cursos</a>
         <div class="collapse" id="courses-collapse">
             <div class="card shadow">
                 <div class="card-header py-3">
                     <div style="display: flex;align-items: center;justify-content: space-between;">
-                        <p class="text-primary m-0 fw-bold" style="color: var(--secondary-color)!important;">Cursos</p><button class="btn btn-primary btn-sm" id="register-student-btn-2" type="button"><i class="far fa-plus-square" style="margin-right: 5px;"></i>Cadastrar</button>
+                        <p id="courses-collapse-title" class="text-primary m-0 fw-bold" style="color: var(--secondary-color)!important;">Cursos</p>
+                        <button class="btn btn-primary btn-sm" id="courses-register-btn" type="button"><i
+                                class="far fa-plus-square" style="margin-right: 5px;"></i>Cadastrar</button>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 text-nowrap">
-                            <div id="dataTable_length-3" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Mostrar&nbsp;<select class="d-inline-block form-select form-select-sm">
+                            <div id="dataTable_length-3" class="dataTables_length" aria-controls="dataTable"><label
+                                    class="form-label">Mostrar&nbsp;<select
+                                        class="d-inline-block form-select form-select-sm">
                                         <option value="10" selected="">10</option>
                                         <option value="25">25</option>
                                         <option value="50">50</option>
@@ -140,16 +176,17 @@
                                     </select>&nbsp;</label></div>
                         </div>
                         <div class="col-md-6">
-                            <div class="text-md-end dataTables_filter" id="dataTable_filter-3"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Buscar"></label></div>
+                            <div class="text-md-end dataTables_filter" id="dataTable_filter-3"><label
+                                    class="form-label"><input type="search" class="form-control form-control-sm"
+                                        aria-controls="dataTable" placeholder="Buscar"></label></div>
                         </div>
                     </div>
-                    <div class="table-responsive table mt-2" id="courses-table" role="grid" aria-describedby="dataTable_info">
+                    <div class="table-responsive table mt-2" id="courses-table" role="grid"
+                        aria-describedby="dataTable_info">
                         <table class="table table-hover my-0" id="dataTable">
                             <thead>
                                 <tr>
                                     <th>Nome</th>
-                                    <th>RA</th>
-                                    <th>TCCs</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -162,16 +199,19 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 align-self-center">
-                            <p id="dataTable_info-3" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
+                            <p id="dataTable_info-3" class="dataTables_info" role="status" aria-live="polite">Showing 1
+                                to 10 of 27</p>
                         </div>
                         <div class="col-md-6">
                             <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
                                 <ul class="pagination">
-                                    <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                    <li class="page-item disabled"><a class="page-link" aria-label="Previous"
+                                            href="#"><span aria-hidden="true">«</span></a></li>
                                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                    <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span
+                                                aria-hidden="true">»</span></a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -181,11 +221,161 @@
         </div>
     </div>
 
-    {% include 'modals/delete-confirmation.html' %}
+    <div id="university-register-modal" class="modal fade modal-xl" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="university-register-modal-title" class="modal-title">Cadastrar universidade</h4>
+                    <button class="btn-close" aria-label="Close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body"
+                    style="width: 100%;height: 100%;display: flex;flex-direction: column;gap: 20px;">
+                    <section id="teacherInfoSection" style="width: 100%;">
+                        <form id="university-form" method="POST" class="row g-3 needs-validation">
+                            {% csrf_token %}
+
+                            <div class="col-md-2">
+                                {{ university_form.acronym.label_tag }}
+                                {{ university_form.acronym }}
+                            </div>
+
+                            <div class="col-md-10">
+                                {{ university_form.name.label_tag }}
+                                {{ university_form.name }}
+                            </div>
+
+                        </form>
+                    </section>
+                </div>
+                <div class="modal-footer"><button id="university-delete-btn" class="btn btn-light"
+                        style="background-color: var(--bs-danger);color: white;" type="button">Remover</button><button
+                        class="btn btn-light" data-bs-dismiss="modal" type="button">Fechar</button>
+                        <button id="university-save-btn" class="btn btn-primary" form="university-form" type="submit">Salvar</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="campus-register-modal" class="modal fade modal-xl" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="campus-register-modal-title" class="modal-title">Cadastrar campus</h4>
+                    <button class="btn-close" aria-label="Close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body"
+                    style="width: 100%;height: 100%;display: flex;flex-direction: column;gap: 20px;">
+                    <section style="width: 100%;">
+                        <form id="campus-form" method="POST" class="row g-3" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="col-md-4">
+                                <label class="form-label">Universidade*</label>
+                                {{ campus_form.university }}
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label" for="{{ form.state.id_for_label }}">Estado*</label>
+                                {{ campus_form.state }}
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label" for="{{ form.city.id_for_label }}">Cidade*</label>
+                                {{ campus_form.city }}
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label">Nome*</label>
+                                {{ campus_form.name }}
+                            </div>
+                        </form>
+                    </section>
+                </div>
+                <div class="modal-footer">
+                    <button id="campus-delete-btn" class="btn btn-light"
+                        style="background-color: var(--bs-danger);color: white;" type="button">Remover</button><button
+                        class="btn btn-light" data-bs-dismiss="modal" type="button">Fechar</button><button
+                        id="campus-save-btn" class="btn btn-primary" form="campus-form" type="submit">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="courses-register-modal" class="modal fade modal-xl" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="course-register-modal-title" class="modal-title">Cadastrar curso</h4>
+                    <button id="" class="btn-close" aria-label="Close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body"
+                    style="width: 100%;height: 100%;display: flex;flex-direction: column;gap: 20px;">
+                    <section style="width: 100%;">
+                        <form id="course-form" method="POST" class="row g-3 needs-validation" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            <div class="col-md-4">
+                                    <label class="form-label">Universidade*</label><input name="university"
+                                    id="id_university" class="form-control required-input" readonly
+                                    type="text"/>
+                            </div>
+
+                            <div class="col-md-8">
+                                <label class="form-label" for="{{ course_form.campus.id_for_label }}">Campus*</label>
+                                {{ course_form.campus }}
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label" for="{{ course_form.name.id_for_label }}">Curso*</label>
+                                {{ course_form.name }}
+                            </div>
+                        </form>
+                    </section>
+                </div>
+                <div class="modal-footer"><button id="course-delete-btn" class="btn btn-light"
+                        style="background-color: var(--bs-danger);color: white;" type="button">Remover</button><button
+                        class="btn btn-light" data-bs-dismiss="modal" type="button">Fechar</button><button
+                        id="course-save-btn" class="btn btn-primary" form="course-form" type="submit">Salvar</button></div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'core/modals/delete-confirmation.html' %}
 
 </div>
 {% endblock %}
 {% block scripts %}
+    <script>
+        const universities = JSON.parse('{{ universities|escapejs }}');
+        const registerUniversityUrl = "{% url 'university_register' %}";
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const stateSelect = document.querySelector('select[name="state"]');
+            const citySelect = document.querySelector('select[name="city"]');
+
+            stateSelect.addEventListener('change', function () {
+                const state = this.value;
+
+                if (!state) {
+                    // Limpar as opções de cidade se nenhum estado for selecionado
+                    citySelect.innerHTML = '<option value="">Selecione uma cidade</option>';
+                    return;
+                }
+
+                // Fazer uma requisição para buscar as cidades baseadas no estado
+                fetch(`/campus/get-cities/?state_acronym=${state}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        citySelect.innerHTML = '<option value="">Selecione uma cidade</option>';  // Limpar opções atuais
+                        data.forEach(city => {
+                            const option = document.createElement('option');
+                            option.value = city.id;
+                            option.textContent = city.name;
+                            citySelect.appendChild(option);
+                        });
+                    });
+            });
+        });
+    </script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/bs-init.js' %}"></script>
     <script src="{% static 'js/theme.js' %}"></script>

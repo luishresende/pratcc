@@ -1,3 +1,11 @@
 from django.db import models
+from campus.models import Campus
 
-# Create your models here.
+
+class Course(models.Model):
+    campus = models.ForeignKey(Campus, models.DO_NOTHING)
+    name = models.CharField(max_length=45)
+
+    class Meta:
+        managed = False
+        db_table = 'course'

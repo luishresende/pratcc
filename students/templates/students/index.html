@@ -1,6 +1,10 @@
-{% extends "base.html" %}
+{% extends "core/base.html" %}
 
 {% load static %}
+
+{% block title %}
+<title>PRATCC - Alunos</title>
+{% endblock %}
 
 {% block content %}
 <div class="container-fluid">
@@ -9,7 +13,7 @@
     <div class="card shadow">
         <div class="card-header py-3">
             <div style="display: flex;align-items: center;justify-content: space-between;">
-                <p class="text-primary m-0 fw-bold" style="color: var(--secondary-color)!important;">Informações</p><button class="btn btn-primary btn-sm" id="register-students-btn" type="button"><i class="far fa-plus-square" style="margin-right: 5px;"></i>Cadastrar</button>
+                <p class="text-primary m-0 fw-bold" style="color: var(--secondary-color)!important;">Informações</p><button class="btn btn-primary btn-sm" id="register-student-btn" type="button"><i class="far fa-plus-square" style="margin-right: 5px;"></i>Cadastrar</button>
             </div>
         </div>
         <div class="card-body">
@@ -32,6 +36,7 @@
                         <tr>
                             <th>Nome</th>
                             <th>RA</th>
+                            <th>Curso</th>
                             <th>TCCs</th>
                         </tr>
                     </thead>
@@ -42,6 +47,7 @@
                         <tr>
                             <td><strong>Nome</strong></td>
                             <td><strong>RA</strong></td>
+                            <td><strong>Curso</strong></td>
                             <td><strong>TCCs</strong></td>
                             <td></td>
                         </tr>
@@ -67,17 +73,29 @@
         </div>
     </div>
 
-    {% include 'modals/register-person.html' %}
+    {% include 'core/modals/register-person.html' %}
 
-    {% include 'modals/delete-confirmation.html' %}
+    {% include 'core/modals/delete-confirmation.html' %}
 
 </div>
 {% endblock %}
 {% block scripts %}
+    <script>
+        const editKeys = ['ra', 'name', 'course_name', 'tcc_count'];
+        const registerKeys = ['ra', 'name', 'course_text', 'tccs_count'];
+        const registerZeroItens = ['tccs_count'];
+        const getUrl = '/students/get';
+        const registerUrl = '/students/register/';
+        const getByIdUrl = '/students/get?ra=';
+        const idName = 'ra';
+        const removeUrl = '/students/delete/';
+        const editUrl = '/students/edit/';
+        const personType = 'aluno';
+        const personTypeEnglish = 'student';
+    </script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/bs-init.js' %}"></script>
     <script src="{% static 'js/theme.js' %}"></script>
     <script src="{% static 'js/global.js' %}"></script>
-    <script src="{% static 'js/pessoas.js' %}"></script>
-    <script src="{% static 'js/aluno.js' %}"></script>
+    <script src="{% static 'js/person.js' %}"></script>
 {% endblock %}

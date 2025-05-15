@@ -1,6 +1,10 @@
-{% extends "base.html" %}
+{% extends "core/base.html" %}
 
 {% load static %}
+
+{% block title %}
+<title>PRATCC - TCCs</title>
+{% endblock %}
 
 {% block content %}
 <div class="container-fluid">
@@ -74,9 +78,9 @@
         </div>
     </div>
 
-    {% include 'modals/tcc.html' %}
+    {% include 'core/modals/tcc.html' %}
 
-    {% include 'modals/delete-confirmation.html' %}
+    {% include 'core/modals/delete-confirmation.html' %}
 
 </div>
 {% endblock %}

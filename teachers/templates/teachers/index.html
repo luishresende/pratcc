@@ -1,6 +1,10 @@
-{% extends "base.html" %}
+{% extends "core/base.html" %}
 
 {% load static %}
+
+{% block title %}
+<title>PRATCC - Professores</title>
+{% endblock %}
 
 {% block content %}
 <div class="container-fluid">
@@ -29,8 +33,9 @@
                 <table class="table table-hover my-0" id="dataTable">
                     <thead>
                         <tr>
-                            <th>Nome</th>
                             <th>Matrícula</th>
+                            <th>Nome</th>
+                            <th>Curso</th>
                             <th>Orientações</th>
                             <th>Co-orientações</th>
                             <th>Bancas</th>
@@ -41,8 +46,9 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td><strong>Nome</strong></td>
                             <td><strong>Matrícula</strong></td>
+                            <td><strong>Nome</strong></td>
+                            <td><strong>Curso</strong></td>
                             <td><strong>Orientações</strong></td>
                             <td><strong>Co-orientações</strong></td>
                             <td><strong>Bancas</strong></td>
@@ -69,17 +75,30 @@
         </div>
     </div>
     
-    {% include 'modals/register-person.html' %}
+    {% include 'core/modals/register-person.html' %}
     
-    {% include 'modals/delete-confirmation.html' %}
+    {% include 'core/modals/delete-confirmation.html' %}
 
 </div>
 {% endblock %}
 {% block scripts %}
+    <script>
+        const editKeys = ['ma', 'name', 'course_name', 'num_orientacoes', 'num_coorientacoes', 'num_bancas'];
+        const registerKeys = ['ma', 'name', 'course_text', 'num_orientacoes', 'num_coorientacoes', 'num_bancas'];
+        const registerZeroItens = ['num_orientacoes', 'num_coorientacoes', 'num_bancas'];
+        const getUrl = '/teachers/get';
+        const registerUrl = '/teachers/register/';
+        const getByIdUrl = '/teachers/get?ma=';
+        const idName = 'ma';
+        const removeUrl = '/teachers/delete/';
+        const editUrl = '/teachers/edit/';
+        const personType = 'professor';
+        const personTypeEnglish = 'teacher';
+    </script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/bs-init.js' %}"></script>
     <script src="{% static 'js/theme.js' %}"></script>
     <script src="{% static 'js/global.js' %}"></script>
-    <script src="{% static 'js/pessoas.js' %}"></script>
-    <script src="{% static 'js/teacher.js' %}"></script>
+    <script src="{% static 'js/person.js' %}"></script>
+    const
 {% endblock %}
