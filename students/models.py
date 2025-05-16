@@ -12,3 +12,6 @@ class Student(models.Model):
     class Meta:
         managed = False
         db_table = 'student'
+
+    def __str__(self):
+        return self.name

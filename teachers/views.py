@@ -7,7 +7,8 @@ from django.db.models import Count, F, Q
 
 # Create your views here.
 def index(request):
-    return render(request, 'teachers/index.html', {'person_form': TeacherForm()})
+    name = request.session.get('name', 'Usuário')
+    return render(request, 'teachers/index.html', {'person_form': TeacherForm(), 'name': name})
 
 
 def get_teachers(request):
@@ -110,6 +111,9 @@ def edit_teacher(request, ma):
             return JsonResponse({'success': False, 'errors': form.errors}, status=400)
 
 def delete_teacher(request, ma):
+    if ma == request.session.get('ma'):
+        return JsonResponse({'success': False, 'message': 'Não é possível remover a si mesmo.'})
+
     try:
         teacher = (Teacher.objects.annotate(
             num_orientacoes=Count('tccwork', distinct=True),

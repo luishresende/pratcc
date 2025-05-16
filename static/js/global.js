@@ -109,18 +109,19 @@ function handleFormWithFetch(formSelector, afterSuccess=null) {
             if (data.success) {
                 toastMessage(data.message || 'Salvo com sucesso!', true);
 
-                if (afterSuccess != null)
+                if (afterSuccess != null){
                     if (data.id)
                         formValues.id = data.id;
                     // Passa os dados digitados para afterSuccess
                     afterSuccess(formValues);
+                }
 
                 form.reset();
             } else {
                 handleApiErrors(data);
             }
         })
-        .catch(() => {
+        .catch((e) => {
             toastMessage('Erro ao enviar o formulário.', false);
         });
     });
@@ -201,7 +202,8 @@ function openModal(modal, modalTitle, title, saveBtn, deleteBtn, isEdit, deleteM
 function handleApiErrors(data) {
     if (data.errors) {
         for (const [field, messages] of Object.entries(data.errors)) {
-            const errorText = Array.isArray(messages) ? messages.join(', ') : messages;
+            const errorList = Array.isArray(messages) ? messages : [messages];
+            const errorText = errorList.join(', ');
             toastMessage(`${field}: ${errorText}`, false);
         }
     } else if (data.message) {
@@ -229,4 +231,35 @@ function injectSelectValue(form, selectId, value, text) {
   // Desmarca todas e marca a desejada
   Array.from(sel.options).forEach(o => o.selected = (o.value === String(value)));
   opt.selected = true;
+}
+
+function unlockIcon(iconElem) {
+    iconElem.classList.remove('fa-lock');
+    iconElem.classList.add('fa-chevron-down');
+}
+
+function lockIcon(iconElem){
+    iconElem.classList.remove('fa-chevron-down');
+    iconElem.classList.add('fa-lock');
+}
+
+function searchTable(tableId, searchInputId) {
+  const input = document.getElementById(searchInputId);
+  const filter = input.value.toLowerCase();
+  const table = document.getElementById(tableId);
+  const tr = table.getElementsByTagName('tr');
+
+  for (let i = 1; i < tr.length; i++) { // começa do 1 para pular o cabeçalho
+    const tds = tr[i].getElementsByTagName('td');
+    let found = false;
+
+    for (let j = 0; j < tds.length; j++) {
+      if (tds[j].textContent.toLowerCase().indexOf(filter) > -1) {
+        found = true;
+        break;
+      }
+    }
+
+    tr[i].style.display = found ? '' : 'none';
+  }
 }

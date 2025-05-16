@@ -62,6 +62,9 @@ def get_university_by_acronym(request):
 
 
 def delete_university(request, acronym):
+
+    if acronym == 'UTFPR':
+        return JsonResponse({'success': False, 'message': 'Não é possível excluir esta universidade.'}, status=400)
     try:
         university = University.objects.get(acronym=acronym)
         campus = Campus.objects.filter(university=university)

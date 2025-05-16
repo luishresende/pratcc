@@ -1,0 +1,140 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PRATCC - Login</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+<div id="toastMessage"></div>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+        <form method="POST" id="register-form" action="{% url 'register' %}">
+            {% csrf_token %}
+            <h1>Criar conta</h1>
+            <input type="text" name="name" placeholder="Nome" required />
+            <input type="text" name="username" placeholder="Usuário" required />
+            <input type="text" name="matricula" placeholder="Matrícula" /> <!-- Extra -->
+            <input type="password" name="password" placeholder="Senha" required />
+            <button type="submit">Cadastrar</button>
+        </form>
+	</div>
+	<div class="form-container sign-in-container">
+        <form method="POST" id="login-form" action="{% url 'login_auth' %}">
+            {% csrf_token %}
+            <h1>Login</h1>
+            <input type="text" name="username" placeholder="Usuário" required />
+            <input type="password" name="password" placeholder="Senha" required />
+            <button type="submit">Entrar</button>
+        </form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Bem vindo de volta!</h1>
+                <p></p>
+				<button class="ghost" id="signIn">Entrar</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>É novo por aqui?</h1>
+				<p></p>
+				<button class="ghost" id="signUp">Cadastrar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+    const toastMessageElem = document.getElementById("toastMessage");
+
+    function toastMessage(message, isSuccess) {
+        let icon = document.createElement('i');
+        icon.classList.add('toast-icon');
+
+        // Define o ícone baseado no sucesso ou erro
+        if (isSuccess) {
+            icon.classList.add('fas', 'fa-check', 'success-icon');
+        } else {
+            icon.classList.add('fas', 'fa-exclamation', 'error-icon');
+        }
+
+        toastMessageElem.innerHTML = '';
+        toastMessageElem.appendChild(icon);
+        toastMessageElem.appendChild(document.createTextNode(message));
+
+        toastMessageElem.className = "show";
+        setTimeout(function () { toastMessageElem.className = toastMessageElem.className.replace("show", ""); }, 3000);
+    }
+
+    function handleApiErrors(data) {
+        if (data.errors) {
+            for (const [field, messages] of Object.entries(data.errors)) {
+                const errorText = Array.isArray(messages) ? messages.join(', ') : messages;
+                toastMessage(`${field}: ${errorText}`, false);
+            }
+        } else if (data.message) {
+            toastMessage(data.message, false);
+        }
+    }
+
+    function handleFormWithFetch(formSelector) {
+        const form = document.querySelector(formSelector);
+        console.log(form);
+
+        if (!form) return;
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            console.log(formData);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    toastMessage(data.message || 'Login bem-sucedido!', true);
+                    window.location.href = '/dashboard/';
+                } else {
+                    handleApiErrors(data);
+                }
+            })
+            .catch(() => {
+                toastMessage('Erro ao enviar o formulário.', false);
+            });
+        });
+    }
+
+
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        handleFormWithFetch('#login-form');
+        handleFormWithFetch('#register-form');
+    });
+
+
+</script>
+</body>
+</html>

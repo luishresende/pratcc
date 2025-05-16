@@ -107,16 +107,6 @@ coursesCollapse.addEventListener('hide.bs.collapse', (event) => {
 });
 
 
-function unlockIcon(iconElem) {
-    iconElem.classList.remove('fa-lock');
-    iconElem.classList.add('fa-chevron-down');
-}
-
-function lockIcon(iconElem){
-    iconElem.classList.remove('fa-chevron-down');
-    iconElem.classList.add('fa-lock');
-}
-
 function loadUniversitiesTable(universities){
     let keys = ['acronym', 'name']
 

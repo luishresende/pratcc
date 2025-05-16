@@ -1,5 +1,7 @@
 from django import forms
 from courses.models import Course
+from django.core.exceptions import ValidationError
+import re
 
 class CourseForm(forms.ModelForm):
     class Meta:
@@ -20,3 +22,9 @@ class CourseForm(forms.ModelForm):
                 'required': True
             }),
         }
+
+    def clean_name(self):
+        name = self.cleaned_data.get('name')
+        if re.search(r'\d', name):
+            raise ValidationError('O nome do curso não pode conter números.')
+        return name

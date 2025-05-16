@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'dashboard',
     'universities',
     'campus',
-    'core'
+    'core',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'accounts.middleware.LoginRequiredMiddleware'
 ]
 
 ROOT_URLCONF = 'pratcc.urls'
@@ -81,14 +83,11 @@ WSGI_APPLICATION = 'pratcc.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pratcc',
-        'USER': 'pratcc',
-        'PASSWORD': 'pratcc_app',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'database.db',
     }
 }
 

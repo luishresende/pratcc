@@ -16,11 +16,11 @@ import json
 def index(request):
     universities = University.objects.values('name', 'acronym')
     universities_list = list(universities)
-
+    name = request.session.get('name', 'Usuário')
     return render(request,
                   'courses/index.html',
                   {'university_form': UniversityForm(), 'universities': json.dumps(universities_list),
-                   'campus_form': CampusForm(), 'course_form': CourseForm()})
+                   'campus_form': CampusForm(), 'course_form': CourseForm(), 'name': name})
 
 
 def course_register(request):

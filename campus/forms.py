@@ -1,6 +1,7 @@
 from django import forms
 from campus.models import Campus
-from universities.models import University
+import re
+from django.core.exceptions import ValidationError
 from campus.models import City, State  # supondo que estão em outro app
 
 
@@ -52,3 +53,11 @@ class CampusForm(forms.ModelForm):
         # Desabilita a universidade se for edição
         if self.instance and self.instance.pk:
             self.fields['university'].disabled = True
+
+    def clean_name(self):
+        name = self.cleaned_data.get('name')
+        if not name:
+            raise ValidationError('O nome do campus é obrigatório.')
+        if re.search(r'\d', name):
+            raise ValidationError('O nome do campus não deve conter números.')
+        return name

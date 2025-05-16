@@ -8,7 +8,8 @@ from students.models import Student
 
 # Create your views here.
 def index(request):
-    return render(request, 'students/index.html', {'person_form': StudentForm()})
+    name = request.session.get('name', 'Usuário')
+    return render(request, 'students/index.html', {'person_form': StudentForm(), 'name': name})
 
 
 def get_students(request):
