@@ -1,3 +1,4 @@
+import os
 import sqlite3
 
 # Caminho do banco SQLite que será criado
@@ -10,6 +11,9 @@ sql_files = [
     "cities.sql",
     "utfpr.sql"
 ]
+
+if os.path.exists(database_path):
+    os.remove(database_path)
 
 def execute_sql_file(cursor, filepath):
     with open(filepath, "r", encoding="utf-8") as file:
